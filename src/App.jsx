@@ -12,7 +12,8 @@ function App() {
     const [quote, setQuotes] = useState(quotes[0]);
 
     setInterval(() => {
-        let index = Math.floor(Math.random(0, 3) * quotes.length) / setQuotes(quotes[index]);
+        let index = Math.floor(Math.random(0, 3) * quotes.length);
+        setQuotes(quotes[index]);
     }, 5000);
 
     return (
