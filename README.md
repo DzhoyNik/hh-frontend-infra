@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Frontend Infrastructure Homework
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Учебный проект для демонстрации настройки инфраструктуры фронтенд-приложения.
 
-## Available Scripts
+Проект представляет собой небольшое React-приложение с генератором случайных цитат и настроенной инфраструктурой разработки.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## О проекте
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Приложение отображает случайную цитату из списка.
+При обновлении страницы или взаимодействии пользователя цитата может изменяться.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Проект создан с использованием **Create React App** и включает базовую настройку инструментов разработки и автоматизации.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Используемые технологии
 
-### `npm run build`
+- React
+- Create React App
+- Axios
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- GitHub Actions
+- GitHub Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Инфраструктура проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+В рамках задания были настроены следующие инструменты:
 
-### `npm run eject`
+- **EditorConfig** — единый стиль форматирования файлов
+- **ESLint** — статический анализ JavaScript кода
+- **Prettier** — автоматическое форматирование кода
+- **Husky** — git hooks
+- **lint-staged** — запуск линтера перед коммитом
+- **GitHub Actions** — автоматическая сборка и деплой проекта
+- **GitHub Pages** — хостинг приложения
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Перед каждым коммитом выполняется проверка кода.
+Если линтер обнаруживает ошибку, коммит не выполняется.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Установка проекта
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Склонировать репозиторий:
 
-## Learn More
+```
+git clone https://github.com/dzhoynik/hh-frontend-infra.git
+cd hh-frontend-infra
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Установить зависимости:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm install
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Запуск проекта
 
-### Analyzing the Bundle Size
+Запуск в режиме разработки:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm start
+```
 
-### Making a Progressive Web App
+Приложение будет доступно по адресу:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+http://localhost:3000
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Сборка проекта
 
-### Deployment
+Создание production сборки:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+npm run build
+```
 
-### `npm run build` fails to minify
+Собранные файлы будут помещены в папку:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+/build
+```
+
+---
+
+## Деплой
+
+Для деплоя используется **GitHub Pages**.
+
+Команда для деплоя:
+
+```
+npm run deploy
+```
+
+После выполнения приложение будет доступно по адресу:
+
+```
+https://{USERNAME}.github.io/hh-frontend-infra
+```
+
+---
+
+## Автоматизация
+
+В проекте настроен **GitHub Actions workflow**, который автоматически:
+
+1. Устанавливает зависимости
+2. Собирает проект
+3. Выполняет деплой при push в ветку `master`
+
+---
+
+## Проверка кода
+
+Перед коммитом автоматически запускается:
+
+- ESLint
+- Prettier
+
+Если код содержит ошибки линтера, коммит будет отменён.
