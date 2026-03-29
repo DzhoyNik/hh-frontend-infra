@@ -1,60 +1,63 @@
 {
-  "name": "frontend-infra",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.13.6",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "homepage": "https://dzhoynik.github.io/hh-frontend-infra",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint src",
-    "format": "prettier --write .",
-    "deploy": "npm run build && gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^8.57.1",
-    "gh-pages": "^6.3.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.3.3",
-    "prettier": "^3.8.1"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write"
-    ]
-  }
+    "name": "frontend-infra",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/dom": "^10.4.1",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^13.5.0",
+        "axios": "^1.13.6",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+    },
+    "homepage": "https://dzhoynik.github.io/hh-frontend-infra",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "lint": "eslint . --ext .js,.jsx",
+        "lint:fix": "eslint . --ext .js,.jsx --fix",
+        "lint:file": "eslint --ext .js,.jsx",
+        "format": "prettier . --check --ignore-unknown",
+        "format:write": "prettier . --write --ignore-unknown",
+        "format:file": "prettier --check --ignore-unknown",
+        "check": "npm run lint && npm run format",
+        "prepare": "husky install"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^8.57.1",
+        "gh-pages": "^6.3.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "prettier": "^3.8.1"
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "npm run lint:file -- --fix",
+            "npm run format:file -- --write"
+        ],
+        "*.{json,css,md}": [
+            "npm run format:file -- --write"
+        ]
+    }
 }
